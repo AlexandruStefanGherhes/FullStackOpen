@@ -4,8 +4,10 @@ sequenceDiagram
     participant server
 
     browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
-    Note right of browser: The server add the sent data of user to an array
-    server->>browser: redirects the server to homepage by Status code 302
+    activate server
+    Note right of browser: The server adds the sent data of user to an existing array.
+    server->>browser: redirects the server to the homepage by Status code 302.
+    deactivate server
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
     activate server
     server-->>browser: HTML document
@@ -21,7 +23,7 @@ sequenceDiagram
     server-->>browser: the JavaScript file
     deactivate server
 
-    Note right of browser: The browser starts executing the JavaScript code that fetches the JSON from the server
+    Note right of browser: The browser starts executing the JavaScript code that fetches the JSON from the server.
 
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
     activate server
