@@ -2,7 +2,7 @@
 sequenceDiagram
     participant browser
     participant server
-
+    activate browser
     browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
     activate server
     Note right of browser: The server adds the sent data of user to an existing array.
