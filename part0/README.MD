@@ -2,7 +2,7 @@
 sequenceDiagram
     participant browser
     participant server
-    activate browser
+
     browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
     activate server
     Note right of browser: The server adds the sent data of user to an existing array.
@@ -28,6 +28,7 @@ sequenceDiagram
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
     activate server
     server-->>browser: [{ "content": "HTML is easy", "date": "2023-1-1" }, ... ]
+    Note right of browser: Here the array is sent back to the browser including the data sent by user earlier
     deactivate server
 
     Note right of browser: The browser executes the callback function that renders the notes
